@@ -1,6 +1,6 @@
 {
   "name": "@opencraft/frontend-plugin-sandbox-headers-and-footers",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Plugin for custom headers and footers in OpenCraft's sandboxes",
   "repository": {
     "type": "git",
@@ -12,9 +12,9 @@
   "main": "dist/index.js",
   "scripts": {
     "preinstall": "npm run build",
-    "build": "fedx-scripts babel src --out-dir dist --source-maps --ignore **/*.test.jsx,**/__mocks__,**/__snapshots__,**/setupTest.js --copy-files",
-    "lint": "fedx-scripts eslint --ext .js --ext .jsx src/",
-    "lint:fix": "fedx-scripts eslint --fix --ext .js --ext .jsx src/",
+    "build": "fedx-scripts babel -x .ts,.tsx src --out-dir dist --source-maps --ignore **/*.test.jsx,**/__mocks__,**/__snapshots__,**/setupTest.js --copy-files",
+    "lint": "fedx-scripts eslint --ext .ts --ext .tsx src/",
+    "lint:fix": "fedx-scripts eslint --fix --ext .ts --ext .tsx src/",
     "test": "fedx-scripts jest --coverage --passWithNoTests"
   },
   "author": "OpenCraft",
@@ -34,10 +34,7 @@
     "@openedx/paragon": "^23.14.2",
     "@types/react": ">=17.0.39",
     "classnames": "*",
-    "react": ">=17.0.00",
-    "react-dom": ">=17.0.0",
-    "react-router-dom": "^6.15.0",
-    "prop-types": "^15.7.15"
+    "react": ">=17.0.0"
   },
   "devDependencies": {
     "@edx/browserslist-config": "^1.1.1",

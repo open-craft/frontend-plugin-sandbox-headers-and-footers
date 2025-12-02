@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const SandboxFooter = () => (
   <footer className="sandbox-footer py-5 px-5">
     <div className="d-flex pb-3 flex-column flex-md-row">
