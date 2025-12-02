@@ -1,9 +1,12 @@
 import { DIRECT_PLUGIN, PLUGIN_OPERATIONS } from '@openedx/frontend-plugin-framework';
 import { WhiteLogo } from './components/WhiteLogo';
-import { MenuWrapper } from './components/user_menus';
+import { MenuWrapper } from './components/MenuWrapper';
 import { SandboxFooter } from './components/SandboxFooter';
 import { DropDownToggler } from './components/DropDownToggler';
 
+export {
+  WhiteLogo, MenuWrapper, SandboxFooter, DropDownToggler,
+};
 // Example slot settings you can use in your deployment. You may be able to import these
 // for quick development usage.
 export const slotSettings = {
