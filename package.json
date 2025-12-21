@@ -1,6 +1,6 @@
 {
     "name": "@opencraft/frontend-plugin-sandbox-headers-and-footers",
-    "version": "1.0.1",
+    "version": "1.0.1-alpha.0",
     "description": "Plugin for custom headers and footers in OpenCraft's sandboxes",
     "repository": {
         "type": "git",
