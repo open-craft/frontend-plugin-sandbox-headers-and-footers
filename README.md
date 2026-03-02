@@ -1,8 +1,8 @@
-# frontend-plugin-sandbox-header-and-footer
+# frontend-plugin-sandbox
 
 ## Purpose
 
-This repo contains the header and footer plugin code for OpenCraft's sandboxes.
+This repo contains plugin code for OpenCraft's sandboxes.
 
 ## Installation
 

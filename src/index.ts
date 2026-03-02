@@ -3,9 +3,9 @@ import { WhiteLogo } from './components/WhiteLogo';
 import { MenuWrapper } from './components/MenuWrapper';
 import { SandboxFooter } from './components/SandboxFooter';
 import { DropDownToggler } from './components/DropDownToggler';
-
+import { CatalogBanner } from './components/CatalogBanner';
 export {
-  WhiteLogo, MenuWrapper, SandboxFooter, DropDownToggler,
+  WhiteLogo, MenuWrapper, SandboxFooter, DropDownToggler, CatalogBanner
 };
 // Example slot settings you can use in your deployment. You may be able to import these
 // for quick development usage.
@@ -72,4 +72,20 @@ export const slotSettings = {
       },
     ],
   },
+  "org.openedx.frontend.catalog.home_page.banner": {
+    plugins: [
+      {
+        op: PLUGIN_OPERATIONS.Hide,
+        widgetId: 'default_contents',
+      },
+      {
+        op: PLUGIN_OPERATIONS.Insert,
+        widget: {
+          id: 'custom_catalog_banner',
+          type: DIRECT_PLUGIN,
+          RenderWidget: CatalogBanner,
+        },
+      },
+    ],
+  }
 };
