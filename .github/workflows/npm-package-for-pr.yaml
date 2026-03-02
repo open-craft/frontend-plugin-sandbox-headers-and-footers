@@ -1,0 +1,56 @@
+name: Build NPM package and upload as artifact to PR for testing
+
+on:
+  pull_request:
+
+jobs:
+  build-and-pack:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Pack package
+        run: npm pack
+      - name: Upload package
+        id: upload-package
+        uses: actions/upload-artifact@v7
+        with:
+          name: frontend-plugin-sandbox-pr${{ github.event.pull_request.number }}
+          path: "*.tgz"
+          archive: false
+          retention-days: 21
+      - name: Comment with link to artifact
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          message: |
+            You can install this into an MFE using:
+            ```bash
+            RUN --mount=type=cache,target=/root/.npm,sharing=shared npm install 'https://github.com/open-craft/frontend-plugin-sandbox-headers-and-footers/archive/refs/heads/${{ github.head_ref }}.tar.gz'
+            ```
+
+            You can test this on a local tutor environment using the following plugin code:
+            ```python
+            hooks.Filters.ENV_PATCHES.add_item(
+                (
+                    f"mfe-dockerfile-post-npm-install-MFE_NAME",
+                """
+                RUN --mount=type=cache,target=/root/.npm,sharing=shared npm install '@edx/frontend-component-header@latest'
+                ADD https://api.github.com/repos/open-craft/frontend-plugin-sandbox-headers-and-footers/git/refs/heads/${{ github.head_ref }} /tmp/gitref
+                RUN --mount=type=cache,target=/root/.npm,sharing=shared npm install 'https://github.com/open-craft/frontend-plugin-sandbox-headers-and-footers/archive/refs/heads/${{ github.head_ref }}.tar.gz'
+                """,
+                )
+            )
+            ```
+
+            If you face issues with installing from GitHub, you can install the packaged tgz file available [here](${{ steps.upload-package.outputs.artifact-url }}).
+          comment-tag: artifact-link
