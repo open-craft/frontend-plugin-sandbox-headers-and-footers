@@ -1,15 +1,15 @@
 import React from "react";
-import { Stack } from "@openedx/paragon";
+import { Image, Row, Stack } from "@openedx/paragon";
 import bannerBg from "../assets/banner-bg.png";
 
 export const CatalogBanner = () => (
-    <Stack
+    <Row
         direction="horizontal"
         className="bg-primary"
     >
         <Stack
             direct="vertical"
-            className="justify-content-center pl-6"
+            className="justify-content-center px-6"
             style={{ maxWidth: "55rem" }}
         >
             <h1 className="display-2 text-light-100">
@@ -24,11 +24,23 @@ export const CatalogBanner = () => (
                 Open edX platform as a learner or course author.
             </p>
         </Stack>
-        <Stack className="justify-content-end">
-            <img
+        <Stack
+            className="justify-content-end"
+            style={{
+                backgroundImg: "url(../assets/banner-bg.png)",
+            }}
+        >
+            <Image
                 src={bannerBg}
+                style={{
+                    height: "100%",
+                    width: "100%",
+                    maxHeight: "550px",
+                    objectFit: "contain",
+                    objectPosition: "right top",
+                }}
                 alt="illustration of a workspace with a computer screen displaying charts and graphs, accompanied by a desk lamp, coffee cup, and potted plant"
             />
         </Stack>
-    </Stack>
+    </Row>
 );
