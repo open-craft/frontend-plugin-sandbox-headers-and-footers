@@ -1,10 +1,10 @@
 {
-    "name": "@opencraft/frontend-plugin-sandbox-headers-and-footers",
+    "name": "@opencraft/frontend-plugin-sandbox",
     "version": "1.1.0",
-    "description": "Plugin for custom headers and footers in OpenCraft's sandboxes",
+    "description": "Plugin for custom components for OpenCraft's sandboxes",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/open-craft/frontend-plugin-sandbox-headers-and-footers.git"
+        "url": "git+https://github.com/open-craft/frontend-plugin-sandbox.git"
     },
     "browserslist": [
         "extends @edx/browserslist-config"
@@ -19,12 +19,12 @@
     },
     "author": "OpenCraft",
     "license": "AGPL-3.0",
-    "homepage": "https://github.com/open-craft/frontend-plugin-sandbox-headers-and-footers#readme",
+    "homepage": "https://github.com/open-craft/frontend-plugin-sandbox#readme",
     "publishConfig": {
         "access": "public"
     },
     "bugs": {
-        "url": "https://github.com/open-craft/frontend-plugin-sandbox-headers-and-footers/issues"
+        "url": "https://github.com/open-craft/frontend-plugin-sandbox/issues"
     },
     "peerDependencies": {
         "@edx/frontend-component-header": ">=6.6.0",

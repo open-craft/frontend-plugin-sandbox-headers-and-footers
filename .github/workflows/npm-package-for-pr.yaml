@@ -35,7 +35,7 @@ jobs:
           message: |
             You can install this into an MFE using:
             ```bash
-            RUN --mount=type=cache,target=/root/.npm,sharing=shared npm install 'https://github.com/open-craft/frontend-plugin-sandbox-headers-and-footers/archive/refs/heads/${{ github.head_ref }}.tar.gz'
+            RUN --mount=type=cache,target=/root/.npm,sharing=shared npm install 'https://github.com/open-craft/frontend-plugin-sandbox/archive/refs/heads/${{ github.head_ref }}.tar.gz'
             ```
 
             You can test this on a local tutor environment using the following plugin code:
@@ -45,8 +45,8 @@ jobs:
                     f"mfe-dockerfile-post-npm-install-MFE_NAME",
                 """
                 RUN --mount=type=cache,target=/root/.npm,sharing=shared npm install '@edx/frontend-component-header@latest'
-                ADD https://api.github.com/repos/open-craft/frontend-plugin-sandbox-headers-and-footers/git/refs/heads/${{ github.head_ref }} /tmp/gitref
-                RUN --mount=type=cache,target=/root/.npm,sharing=shared npm install 'https://github.com/open-craft/frontend-plugin-sandbox-headers-and-footers/archive/refs/heads/${{ github.head_ref }}.tar.gz'
+                ADD https://api.github.com/repos/open-craft/frontend-plugin-sandbox/git/refs/heads/${{ github.head_ref }} /tmp/gitref
+                RUN --mount=type=cache,target=/root/.npm,sharing=shared npm install 'https://github.com/open-craft/frontend-plugin-sandbox/archive/refs/heads/${{ github.head_ref }}.tar.gz'
                 """,
                 )
             )
