@@ -1,46 +1,43 @@
 {
-  "name": "@opencraft/frontend-plugin-sandbox-headers-and-footers",
-  "version": "1.0.0",
-  "description": "Plugin for custom headers and footers in OpenCraft's sandboxes",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/open-craft/frontend-plugin-sandbox-headers-and-footers.git"
-  },
-  "browserslist": [
-    "extends @edx/browserslist-config"
-  ],
-  "main": "dist/index.js",
-  "scripts": {
-    "preinstall": "npm run build",
-    "build": "fedx-scripts babel src --out-dir dist --source-maps --ignore **/*.test.jsx,**/__mocks__,**/__snapshots__,**/setupTest.js --copy-files",
-    "lint": "fedx-scripts eslint --ext .js --ext .jsx src/",
-    "lint:fix": "fedx-scripts eslint --fix --ext .js --ext .jsx src/",
-    "test": "fedx-scripts jest --coverage --passWithNoTests"
-  },
-  "author": "OpenCraft",
-  "license": "AGPL-3.0",
-  "homepage": "https://github.com/open-craft/frontend-plugin-sandbox-headers-and-footers#readme",
-  "publishConfig": {
-    "access": "public"
-  },
-  "bugs": {
-    "url": "https://github.com/open-craft/frontend-plugin-sandbox-headers-and-footers/issues"
-  },
-  "peerDependencies": {
-    "@edx/frontend-component-header": ">=6.6.0",
-    "@edx/frontend-platform": ">=7.0.0",
-    "@openedx/frontend-build": ">=13.0.0",
-    "@openedx/frontend-plugin-framework": "^1.2.1",
-    "@openedx/paragon": "^23.14.2",
-    "@types/react": ">=17.0.39",
-    "classnames": "*",
-    "react": ">=17.0.00",
-    "react-dom": ">=17.0.0",
-    "react-router-dom": "^6.15.0",
-    "prop-types": "^15.7.15"
-  },
-  "devDependencies": {
-    "@edx/browserslist-config": "^1.1.1",
-    "@openedx/frontend-build": "^14.2.0"
-  }
+    "name": "@opencraft/frontend-plugin-sandbox-headers-and-footers",
+    "version": "1.1.0",
+    "description": "Plugin for custom headers and footers in OpenCraft's sandboxes",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-craft/frontend-plugin-sandbox-headers-and-footers.git"
+    },
+    "browserslist": [
+        "extends @edx/browserslist-config"
+    ],
+    "main": "dist/index.js",
+    "scripts": {
+        "postinstall": "npm run build",
+        "build": "fedx-scripts babel -x .ts,.tsx src --out-dir dist --source-maps --ignore **/*.test.jsx,**/__mocks__,**/__snapshots__,**/setupTest.js --copy-files",
+        "lint": "fedx-scripts eslint --ext .ts --ext .tsx src/",
+        "lint:fix": "fedx-scripts eslint --fix --ext .ts --ext .tsx src/",
+        "test": "fedx-scripts jest --coverage --passWithNoTests"
+    },
+    "author": "OpenCraft",
+    "license": "AGPL-3.0",
+    "homepage": "https://github.com/open-craft/frontend-plugin-sandbox-headers-and-footers#readme",
+    "publishConfig": {
+        "access": "public"
+    },
+    "bugs": {
+        "url": "https://github.com/open-craft/frontend-plugin-sandbox-headers-and-footers/issues"
+    },
+    "peerDependencies": {
+        "@edx/frontend-component-header": ">=6.6.0",
+        "@edx/frontend-platform": ">=7.0.0",
+        "@openedx/frontend-build": ">=13.0.0",
+        "@openedx/frontend-plugin-framework": "^1.2.1",
+        "@openedx/paragon": "^23.14.2",
+        "@types/react": ">=17.0.39",
+        "classnames": "*",
+        "react": ">=17.0.0"
+    },
+    "devDependencies": {
+        "@edx/browserslist-config": "^1.1.1",
+        "@openedx/frontend-build": "^14.2.0"
+    }
 }
